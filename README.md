@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://minimal-blog.lekoarts.de">
+  <a href="https://amitonline.netlify.app">
     <img alt="LekoArts" src="https://img.lekoarts.de/gatsby/gatsby-site-illustration.png" />
   </a>
 </p>
@@ -19,9 +19,9 @@
 
 Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and line highlighting. Using the Gatsby Theme [`@lekoarts/gatsby-theme-minimal-blog`](https://github.com/LekoArts/gatsby-themes/tree/master/themes/gatsby-theme-minimal-blog).
 
-[**Demo Website**](https://minimal-blog.lekoarts.de)
+[**Demo Website**](https://amitonline.netlify.app)
 
-Also be sure to checkout other [Free & Open Source Gatsby Themes](https://themes.lekoarts.de)
+Also be sure to checkout other [Free & Open Source Gatsby Themes](https://amitonline.netlify.app)
 
 ## ✨ Features
 

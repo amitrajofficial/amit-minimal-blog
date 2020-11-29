@@ -6,7 +6,15 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 
 module.exports = {
   siteMetadata: {
-    siteTitleAlt: `Minimal Blog - Gatsby Theme`,
+    siteTitle: `Amit Yadav`,
+    siteHeadline: `Amit Yadav | Software Developer`,
+    siteTitleAlt: `Amit Yadav | Software Developer`,
+    siteUrl: `https://amitonline.netlify.app/`,
+    siteDescription: ``,
+    siteLanguage: ``,
+    siteImage: ``,
+    author: `Amit Yadav`,
+
   },
   plugins: [
     {
@@ -26,11 +34,11 @@ module.exports = {
         externalLinks: [
           {
             name: `Twitter`,
-            url: `https://twitter.com/lekoarts_de`,
+            url: `https://twitter.com/amitrajofficial`,
           },
           {
             name: `Instagram`,
-            url: `https://www.instagram.com/lekoarts.de/`,
+            url: `https://www.instagram.com/amitrajofficial/`,
           },
         ],
       },
