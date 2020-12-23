@@ -53,9 +53,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `minimal-blog - @lekoarts/gatsby-theme-minimal-blog`,
-        short_name: `minimal-blog`,
-        description: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and code highlighting.`,
+        name: `Amit Yadav - Software Developer`,
+        short_name: `amitonline.netlify.app`,
+        description: `ReactJS and NodeJS Developer.`,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#6B46C1`,
