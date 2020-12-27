@@ -1,6 +1,92 @@
 ---
-title: First Post
+title: Compress and Upload Data on s3
 date: 2021-01-01
+slug: "/compress-and-upload-data-on-s3"
+tags:
+  - NodeJS
+  - Javascript
 ---
 
-Post will be available on 1st Jan! Meanwhile you can reach out to me at [amitrajofficial@gmail.com](mailto:amitrajofficial@gmail.com)
+>I was working on a use-case where I had to pick some data using sftp on the server and process those data to save in the local-db then upload and store the received data in a s3 bucket to serve as a backup, all to be done asynchronously.
+
+If you’re looking to for to compress files/folders into .zip , I would recommend using [archiver npm-package.](https://www.npmjs.com/package/archiver)
+
+Sample code:
+```js
+var file_system = require('fs');
+var archiver = require('archiver');
+
+var output = file_system.createWriteStream('target.zip');
+var archive = archiver('zip');
+
+output.on('close', function () {
+    console.log(archive.pointer() + ' total bytes');
+    console.log('archiver has been finalized and the output file descriptor has closed.');
+});
+
+archive.on('error', function(err){
+    throw err;
+});
+
+archive.pipe(output);
+
+// append files from a sub-directory, putting its contents at the root of archive
+archive.directory(source_dir, false);
+
+// append files from a sub-directory and naming it `new-subdir` within the archive
+archive.directory('subdir/', 'new-subdir');
+
+archive.finalize();
+```
+
+Upload to s3 right after archiving the data:
+
+Sample Code:
+```js
+const fs = require('fs');
+const AWS = require('aws-sdk');
+
+const s3 = new AWS.S3({
+    accessKeyId: process.env.AWS_ACCESS_KEY,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+});
+
+const fileName = 'target.zip';
+
+const uploadFile = () => {
+  fs.readFile(fileName, (err, data) => {
+     if (err) throw err;
+     const params = {
+         Bucket: 'testBucket', // pass your bucket name
+         Key: 'target.zip', // file will be saved as testBucket/target.zip
+         Body: JSON.stringify(data, null, 2)
+     };
+     s3.upload(params, function(s3Err, data) {
+         if (s3Err) throw s3Err
+         console.log(`File uploaded successfully at ${data.Location}`)
+     });
+  });
+};
+
+uploadFile();
+```
+
+Once all file were compressed and uploaded to s3, I was deleting all the files from the server so that it is not processed again.
+
+Sample Code for Deleting Files:
+```js
+async deleteFiles(filepath) {
+  try {
+    filepath.forEach(path => {
+      if (path.indexOf('.') === -1) {
+        fs.existsSync(path) && fs.rmdirSync(path, { recursive: true });
+      } else {
+        fs.existsSync(path) && fs.unlinkSync(path)
+      }
+      this.logger.info(`DELETED ${path}`);
+    })
+  } catch (err) {
+    console.error(err)
+  }
+}
+```
