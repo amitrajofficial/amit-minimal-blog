@@ -7,12 +7,12 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 module.exports = {
   siteMetadata: {
     siteTitle: `Amit Yadav`,
-    siteHeadline: `Amit Yadav | Software Developer`,
-    siteTitleAlt: `Amit Yadav | Software Developer`,
+    siteHeadline: `Amit Yadav | Software Developer | Digital Media Marketing Expert`,
+    siteTitleAlt: `Amit Yadav | Software Developer | Digital Media Marketing Expert`,
     siteUrl: `https://amitonline.netlify.app/`,
-    siteDescription: ``,
-    siteLanguage: ``,
-    siteImage: ``,
+    siteDescription: `Amit Yadav is a ReactJS and NodeJS developer. He writes about Coding and Travelling.`,
+    siteLanguage: `en-US`,
+    siteImage: `android-chrome-192x192.png`,
     author: `Amit Yadav`,
 
   },
