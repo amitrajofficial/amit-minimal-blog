@@ -9,7 +9,7 @@ module.exports = {
     siteTitle: `Amit Yadav`,
     siteHeadline: `Amit Yadav | Software Developer | Digital Media Marketing Expert`,
     siteTitleAlt: `Amit Yadav | Software Developer | Digital Media Marketing Expert`,
-    siteUrl: `https://amitonline.netlify.app/`,
+    siteUrl: `https://amityadav.online/`,
     siteDescription: `Amit Yadav is a ReactJS and NodeJS developer. He writes about Coding and Travelling.`,
     siteLanguage: `en-US`,
     siteImage: `android-chrome-192x192.png`,
@@ -54,7 +54,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Amit Yadav - Software Developer`,
-        short_name: `amitonline.netlify.app`,
+        short_name: `amityadav.online`,
         description: `ReactJS and NodeJS Developer.`,
         start_url: `/`,
         background_color: `#fff`,
